@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import java.util.Objects;
 import java.util.Optional;
 
 @Slf4j
@@ -21,9 +23,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public void create(User user) {
-        Optional<User> existingEmail = userRepository.findByUsername(user.getEmail());
-        Optional<User> existingUsername = userRepository.findByUsername(user.getUsername());
-        if(existingEmail.isPresent() || existingUsername.isPresent()){
+        User existing = findByUsername(user.getUsername());
+        if(Objects.nonNull(existing)){
             user.setPassword("password");
             log.warn(("User already exists! " + user));
             throw new IllegalArgumentException("User already exists: " + user);
@@ -57,6 +58,6 @@ public class UserServiceImpl implements UserService{
 
         if(user.isPresent()){ return user.get(); }
 
-        throw new UsernameNotFoundException("Not find User with username: " + username);
+        return null;
     }
 }
