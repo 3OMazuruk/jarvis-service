@@ -1,5 +1,8 @@
 package ua.com.jarvis.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import ua.com.jarvis.domain.Role;
 import ua.com.jarvis.domain.User;
 import ua.com.jarvis.domain.dto.input.CreateUserInputDto;
@@ -28,8 +31,8 @@ public class AuthController {
         return principal;
     }
 
-    @PostMapping(value = "/create")
-    public void createUser(@Valid @RequestBody CreateUserInputDto dto) {
+    @PostMapping(value = "/create", produces = {MediaType.APPLICATION_JSON_VALUE}, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> createUser(@RequestBody CreateUserInputDto dto) {
         User user = new User();
         user.setUsername(dto.getUsername());
         user.setEmail(dto.getEmail());
@@ -45,5 +48,10 @@ public class AuthController {
         roles.add(role);
 
         userService.create(user);
+
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(user.getId());
     }
 }
