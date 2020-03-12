@@ -5,9 +5,9 @@ spring:
     allow-bean-definition-overriding: true
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://remotemysql.com:3306/zvEwMoss1Y?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
-    username: "zvEwMoss1Y"
-    password: "gt6vyDRt54"
+    url: jdbc:mysql://remotemysql.com:3306/I6wCthtRZZ?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: "I6wCthtRZZ"
+    password: "DrbdZJEt5u"
   jpa:
     properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate.ddl-auto: update
