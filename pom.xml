@@ -102,14 +102,6 @@
                     <finalName>jarvis-service</finalName>
                     <mainClass>ua.com.jarvis.AuthServiceApplication</mainClass>
                 </configuration>
-
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
