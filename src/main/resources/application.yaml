@@ -17,7 +17,7 @@ spring:
 server:
   servlet:
     context-path: /jarvis
-  port: 8085
+  port: 8080
 
 #security:
 #  oauth2:
