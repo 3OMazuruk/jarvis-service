@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: jarvis-service
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/auth-service?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+    username: "root"
+    password: "root"
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+
+server:
+  servlet:
+    context-path: /jarvis
+  port: 8085
+
+#security:
+#  oauth2:
+#    resource:
+#      user-info-uri: http://localhost:8085/task/users/current
+
+google:
+  client:
+    clientId: "1081223552148-5jfc40qnve3c99n4iocqhrs2d83d53eg.apps.googleusercontent.com"
+    clientSecret: "1DYnpiqmkghZV7GwELTcYZt-"
+    accessTokenUri: "https://www.googleapis.com/oauth2/v4/token"
+    userAuthorizationUri: "https://accounts.google.com/o/oauth2/v2/auth"
+    clientAuthenticationScheme: "header"
+    scope:
+      - email
+      - profile
+      - openid
+  resource:
+    userInfoUri: "https://www.googleapis.com/oauth2/v3/userinfo"
+    preferTokenInfo: true
+
+logging:
+  #file: "C:/log/poll-service/jarvis-service.log"
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+  level:
+    org.springframework.web: INFO
+    ua.edu.donnu.poll.poll_service: INFO
