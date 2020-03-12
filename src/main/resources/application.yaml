@@ -15,9 +15,7 @@ spring:
     show-sql: true
 
 server:
-  servlet:
-    context-path: /jarvis
-  port: 8080
+  port: 9000
 
 #security:
 #  oauth2:
