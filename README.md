@@ -7,7 +7,7 @@ For example, this service will be deployed on Heroku and used free remote Mysql.
 
 Step by step installation:
 1) Clone this project on your PC:   
-`` `$ git clone https://github.com/Mazuruk-O/jarvis-service.git`` `
+``$ git clone https://github.com/Mazuruk-O/jarvis-service.git``
 2) Sign up at [Remote Mysql]:   
     2.1) Create new database    
     2.2) Copy username, password and database_name and set this value in application.yaml
